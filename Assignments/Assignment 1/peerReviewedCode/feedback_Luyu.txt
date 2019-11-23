@@ -1,0 +1,25 @@
+What I took points off for:
+- the loaded variables are not defined/explained. You should definitely explain these in comments since the variable's do not have names that explain what they are intuitively. If I didn't get Pascal's document explaining what to do and why, I'd have no idea why you're subtracting 'stimTime_xxx' from 'reaction_Times_caffeinexxx' in section "1". As a result I know WHAT you're doing (you state that we are computing reaction times) but it's unclear WHY because I don't understand what the variables mean, the general approach you took to operationalize as 'validTrials' (i.e. greater than 0), etc.
+
+
+-Suggestions- 
+--- I didn't take points off for any of the below because Pascal didn't ask for any of this - these are just helpful tips that I've learned over time from my lab that can help make code much clearer/faster/whatever.
+
+General/Header:
+- I sometimes prefer using underscores instead of the camelBack (i.e. "camel_Back" vs. "cambelBack") variable form but eventually someone in the class will take off points for this because of how much Pascal seems to prefer it. May be best to just stick to the camelBack form.
+- there are a lot of unsupressed echo's (missing ';'s). If you don't need the output in the command window for the final output (the plot), then the line should be surpressed. I know that seeing the output is very helpful while you're building the code but, once you've finished, adding these suppressions afterwards makes the code run much faster and looks much cleaner. (They can be easily identified by looking just to the right of the scroll bar - Matlab puts a little colored line. You can hover the pointer over these and then Matlab will show the warning).
+- the header could do a better job of explaining the experiment (i.e. what are the conditions, what are valid trials and why, etc.) - this is a preference thing for me, I think, so I didn't take off points for this - just a suggestion. 
+- I would include an 'in english' commented explanation for each section (even if it seems redundant). Imagine if you applied for a job/PhD program and they asked to see your code, better to overcomment than undercomment. 
+
+Loop:
+- 'pp' in your loop doesn't really make sense. It is labeled as participant, and given a value of 1, but there are three. I understand that you need this to be one for your columns within the loop, but I would be more explicit about that.
+- It is often very helpful to explain in regular English (via comments just before the loop begins) what exactly the loop is doing. For example I would've written something like the below for the loop you created:
+
+" Explaining the Below Loop:
+The below loop iterates through a vector (1:300) that is representative of all trials. Each iteration represents one participants reaction time  observation for a single trial. First, the loop checks if the reaction time is greater than the cutoff for valid trials (reaction time > 0). If it meets this requirement, the observation is placed into a new data structure clearly named by caffeine condition. (validTrials_caffeine_200, validTrials_caffeine_400, or validTrials_control). Once the loop is completed, a final line removes the 0 value reaction times which will throw off the plot."
+
+Plot:
+- the graph goes too long - the xlimits should have been adjusted.
+- you could reorder your legend to place the 'control' line on top so that it is visually in the same pattern of the graph (super minor, I'm a perfectionist)
+- ** Someone else will definitely take off points for your DC themed plot variables - they should be something like plotCaffeine400 or whatever. They're fun, and I like them, but maybe better to cover yourself.
+- I would have also made the comments for these plotting lines clearer - 'plotting participant 1' doesn't really tell me what you're doing. 'Plotting the participant exposed to 200mg's' is clearer. I know you refer to each condition this way throughout the in-line comments, but I wouldn't do this unless you had a separate bulleted commented section that said "200 mgs = participant 1, 400 mgs = ...". Even this I probably wouldn't do, people are lazy and might not go back and forth to double check and just

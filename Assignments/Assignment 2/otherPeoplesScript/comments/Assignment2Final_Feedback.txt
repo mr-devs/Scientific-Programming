@@ -1,0 +1,9 @@
+- "figure('WindowState', 'fullscreen' " doesn't work on my computer so the code doesn't run all the way through. I have a feeling it may be a Matlab preferences/setting thing - so I didn't take points off. 
+- For the welcomeScreen instructions, no need to do each one three times, you just need to look up how to create a new line while presenting text-based messages. A lot of extra unnecessary code as a result. 
+- Lines 74 - 76 should be in the priors section.
+- toc should go right after pause.
+- "sortedResults" is preallocated incorrectly. You create a one column vector with ten rows. When it is finally populated with the sorted data, it is a matrix that is 10 rows by 11 columns. 
+- Plotting variables should be included in priors (startLevel and endLevel)
+	- also, these are created but not utilized, there is a bit of hardcoding going on as a result. 
+- Should probably include 'hair' measures for both the x and y axes in the plots so that we can see where the lines end. 
+

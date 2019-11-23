@@ -1,0 +1,17 @@
+- 'modifieddress' should be preallocated for speed
+- 'biggerMatrix' should be preallocated for the creation of the larger images for speed
+- the experimental recording of the users response does not correctly account for whether or not the original image is presented on the left or the right. The if statement used in "The Experiment - section 3" is trying to do this by comparing the last key pressed AND checking whether or not 'chanceDress' is greater than (or less than).5
+	- This is a logical error because the code will run but 'chanceDress' does not vary. It only varies in the earlier loop where two images are placed into 'biggerMatrix'. Whatever the last value between 0 and 1 that is randomly created in that loop is used for every loop in "The Experiment - section 3".
+- No need to place semicolons after loop statements like 'if', 'while', or 'for'.
+- there are a few variables that are missing these echo suppressions, however, i.e. the results variable in the for-loop in "The Experiment - section 3". Also, the creation of the 'psychoMetricCurve = figure" line.
+- there is an additional toc that comes after the loop in "The Experiment - section 3" and creates a variable 'rt' which will only have one value, and does not record actual reaction time for any of the key presses - seems like a remnant of an earlier version. 
+	- should be placed directly after the 'pause' command. Also, it should be a part of the 
+- The loop in "Organizing the results and Plotting the Data" is not correct:
+	- You create the variable 'sortedResults' which is a 10x11 matrix and the only fill it with 11 values. The entire first column and then one value in the first element of the second column.
+	- the reason is because you are taking the value of randOrder(ii) only 11 times. When ii = 1, you are taking the first value from the 110 element vector randOrder (could be anything from 1 to 11) and then taking THAT element from results. So if the first element of randOrder = 8 --> you are taking the 8th element from results, and placing it in the 8th element of 'sortedResults'. 
+	- Afterwards you are taking the mean of each column created in the sortedResults and omiting the nan values, thus you will only have two mean values (column 1 and 2). By omitting the nan results, you ensure that no error is thrown, but the brightness levels in the psychometric curve only go from 1 to 2.
+
+Done incorrectly:
+- Recording data
+- Organizing the results
+-  

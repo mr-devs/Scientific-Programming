@@ -1,0 +1,5 @@
+
+- get(root) for screen size values
+- fix the loop to use the randomized vector
+
+

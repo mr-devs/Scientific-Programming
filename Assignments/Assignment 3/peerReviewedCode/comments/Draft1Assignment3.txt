@@ -1,0 +1,7 @@
+Draft1Assignment3
+
+Your anova runs the test on Final Grades and not Total Grades, The results are the same, more or less, though. Also, you forgot to save the workspace at the end of your script. Everything else was great though.
+
+Assignment3Matlab
+
+Everything works well and looks accurate. Great job.

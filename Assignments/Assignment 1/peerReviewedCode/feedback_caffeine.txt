@@ -1,0 +1,43 @@
+Feedback:
+
+1) Does the code do what it is supposed to do? (-1) -- The code doesn't do anything at all (b/c of the load function used) but fixing for this everything else works. 
+
+Load the variables: (-1)
+- 'importfile()' is not a function that exists (at least in my version of Matlab). As a result, the code doesn't do anything. After Googling this function (and fiding 'importdata()' ) I changed 'importfile' to 'importdata' and ran it again. Switching to this does not help the code run because 'importdata()' is used to load data into an assigned array(i.e. 'A = importdata(filename)'), not into Matlab's workspace (so your following code can't draw on these variables b/c they're not in the workspace. Thus, nothing works.).
+- the memory and workspace are not cleared. Even after I changed the function to 'load' it wouldn't run properly b/c I had other variables in my memory from the last code I reviewed.
+
+To check the rest, I simply changed 'importfile" to "load", added a couple 'clear' lines and ran the code again...
+
+Compute Reaction Times:
+- This works great
+
+Identify valid trials:
+- Your code in this section is what I wanted to do (b/c it's definitely faster) but I figured people wanted to see a loop. This section works perfectly. (Although there is no 'check' that it's working properly. i.e. "Trust, but verify")
+
+Plot the data:
+- This works just fine, but probably best to adjust the x limits because there is an akward amount of extra space to the right of the trace lines.
+
+Save the workspace:
+- I would make this it's own section at the end, but the line of code works just fine. 
+
+--------
+
+2) How clear is the code? (-1)
+
+Including a meaningful header (what is the script trying to do, what is it assuming, when was it written):
+- Good.
+
+Includes meaningful, logically contained code sections (e.g. init, loading, computing, plotting, etc.)
+- missing the "clear phase" of init, but I took points off under the "does the code work" section
+- visually, I would separate the individual plot sections (200mgs vs 400 mgs, etc.), as well as the adjusted graphing properties, with a blank line (not new sections), but that's just my preference so I didn't take points off for that.
+
+Includes line comments that explain what each line does (-1)
+- for each line, you explain what the code is doing, however, you didn't explain the variables that you loaded. As a result, if I did not read Pascal's homework assignment, I would have no idea why your doing what you're doing in section "2 Compute reaction times for each trail". You say, "%Subtracting stimulation time from total time of the trial to get the reaction time" but I don't know what stimulation time means - is this how long the stimuli was exposed to the participant, onset time, etc.
+- In the initilization seciton you say on line 11 and 12, "%Assuming the minimum valid reaction time must be more than 0 (0 being when the stimulus occurred)". I get your point here b/c I know what you were trying to say, but this would probably confuse me more then help me if I hadn't done the homework. You're saying that 0 is when the stimulus occurred, but in reality the stimulus occured at random times. It's also confusing to say (paraphrasing the idea) "the minimium time must be greater than 0" and then in the very next line create a variable called "minTime" and set it equal to zero. 
+- in general, WHAT each line of code is doing is clear, however, WHY your code is doing what it's doing is not. I think you needed to explain the variables that you loaded and why you're manipulating the data in the way that you do before plotting it (i.e. we are subtracting the stimulus onset times b/c they were randomized and sometimes participants reacted before the stimulus was presented. As a result negative trials are defined as invalid.). 
+
+Uses meaningful variable names (the name of the variables have a semantic relationship to what they represent, not a/b/c or temp1, temp2, temp3)
+- The plotting handles are just letters, so these could be renamed to something like 'plotValidTrials200'. Since you wrote in the comments what each letter means, I didn't take any points off. However, because I knew what the line of code was doing and didn't need to read the comment to understand it, I almost missed this comment and was pretty confused as to why you used those handles. 
+
+Avoids hardcoding (all constants used in the script are in the init block at the beginning) 
+- Good.
